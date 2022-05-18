@@ -2,7 +2,7 @@
 
 #include <zephyr.h>
 #include <device.h>
-#include <drivers/gpio.h> // where does this file live?
+#include <drivers/gpio.h> 
 #include <sys/util.h>
 #include <sys/printk.h>
 #include <inttypes.h>
@@ -37,7 +37,7 @@ void main (void){
   }
 
   ret = gpio_pin_interrupt_configure_dt(&button, GPIO_INT_EDGE_TO_ACTIVE);
-  it (ret != 0) {
+  if (ret != 0) {
     printk("Error %d: failed to configure interrupt on %s pin %d\n",
       ret, button.port->name, button.pin);
     return;
